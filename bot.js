@@ -1,6 +1,7 @@
 import Twit from 'twit'
 import rp from 'request-promise'
 import moment from 'moment'
+import { CronJob } from 'cron'
 
 import config from './config'
 import abbreviates from './abbreviates'
@@ -9,7 +10,7 @@ const T = new Twit(config)
 const today = moment().format('YYYYMMDD')
 
 const run = async () => {
-
+  console.log('Running for', today)
   const data = await rp({
     method: 'POST',
     uri: 'https://www.boletinoficial.gob.ar/secciones/secciones.json',
@@ -45,5 +46,9 @@ const abbreviateNorma = norma => norma.replace('Decreto ', '#')
 const abbreviateOrganismo = organismo => organismo.split(' ').map(abbreviateWord).join(' ')
 const abbreviateWord = word => abbreviates[word] || word
 
-run()
+
+// start/schedule
+
+// run()
+new CronJob('00 30 09 * * 1-5', run, () => {}, true)
 

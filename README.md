@@ -7,7 +7,7 @@ los publica en forma de tweets individuales.
 
 Para poder ejecutar primeramente hace falta
 
-* crear una aplicación de twitter (https://apps.twitter.com/app/new)
+* crear una aplicación de twitter (https://apps.twitter.com/app/new)[https://apps.twitter.com/app/new]
 * crear un token (desde la misma página)
 
 
