@@ -1,0 +1,67 @@
+{
+    "dataList": [
+        [
+            {
+                "rubro": "Decretos",
+                "tipoNorma": "",
+                "nuevo": "True",
+                "organismo": "JEFATURA DE GABINETE DE MINISTROS",
+                "numeroNorma": "Decreto 897",
+                "anioNorma": "2017",
+                "idTamite": "174096",
+                "anioTramite": null,
+                "tieneAnexos": false,
+                "sintesis": "Desígnase Subsecretaria de Vínculo Ciudadano.",
+                "archivoPDF": null,
+                "fechaPublicacion": "20171103",
+                "fechaPublicacionDesde": null,
+                "fechaPublicacionHasta": null,
+                "titulo": null,
+                "idNorma": null
+            },
+            {
+                "rubro": "Decretos",
+                "tipoNorma": "",
+                "nuevo": "True",
+                "organismo": "MINISTERIO DE RELACIONES EXTERIORES Y CULTO",
+                "numeroNorma": "Decreto 895",
+                "anioNorma": "2017",
+                "idTamite": "174097",
+                "anioTramite": null,
+                "tieneAnexos": false,
+                "sintesis": "Trasládase funcionario.",
+                "archivoPDF": null,
+                "fechaPublicacion": "20171103",
+                "fechaPublicacionDesde": null,
+                "fechaPublicacionHasta": null,
+                "titulo": null,
+                "idNorma": null
+            },
+            {
+                "rubro": "Decretos",
+                "tipoNorma": "",
+                "nuevo": "True",
+                "organismo": "SERVICIO EXTERIOR",
+                "numeroNorma": "Decreto 896",
+                "anioNorma": "2017",
+                "idTamite": "174098",
+                "anioTramite": null,
+                "tieneAnexos": false,
+                "sintesis": "Desígnase Embajador Extraordinario y Plenipotenciario de la República en la Confederación Suiza.",
+                "archivoPDF": null,
+                "fechaPublicacion": "20171103",
+                "fechaPublicacionDesde": null,
+                "fechaPublicacionHasta": null,
+                "titulo": null,
+                "idNorma": null
+            }
+        ],
+        "2017110301N.pdf",
+        null,
+        "20171103",
+        "2469"
+    ],
+    "id": "wRICgAzmzCEFpVVyIq94QC1bLS1JVi1bLejpmTzjsiLKKyvC5XlVrAA=",
+    "codigoError": 0,
+    "mensajeError": ""
+}
