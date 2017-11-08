@@ -3,6 +3,8 @@ import nock from 'nock'
 import fs from 'fs'
 import api from '../../src/api/api'
 
+const BASE_URL = 'https://www.boletinoficial.gob.ar'
+
 describe('BNO api', () => {
 
   afterEach(() => {
@@ -12,7 +14,7 @@ describe('BNO api', () => {
   describe('fetchDecretos()', () => {
     
     it('should retrieve a list of decretos', async () => {
-      nock('https://www.boletinoficial.gob.ar')
+      nock(BASE_URL)
         .post('/secciones/secciones.json')
         .reply(200, JSON.parse(fs.readFileSync(`${__dirname}/./sample.decretos.json`)))
 
@@ -79,7 +81,7 @@ describe('BNO api', () => {
   describe('fetchDetalleDecreto', () => {
 
     it('should retrieve a decreto', async () => {
-      nock('https://www.boletinoficial.gob.ar')
+      nock(BASE_URL)
         .post('/norma/detallePrimera')
         .reply(200, JSON.parse(fs.readFileSync(`${__dirname}/./sample.detalleDecreto.json`)))
 
@@ -89,7 +91,27 @@ describe('BNO api', () => {
           organismo: 'PROCURACIÓN GENERAL DE LA NACIÓN',
           idTramite: '174186',
           fechaPublicacion: '20171106',
-          detalleNorma: '#I5426953I#\n\nPROCURACIÓN GENERAL DE LA NACIÓN\n\nDecreto 898/2017\n\nAcéptase renuncia.\n\nCiudad de Buenos Aires, 03/11/2017\n\nVISTO Y CONSIDERANDO:\n\nQue la señora doctora D. Alejandra Magdalena GILS CARBÓ ha presentado su\nrenuncia, a partir del 31 de diciembre del año 2017, al cargo de Procuradora\nGeneral de la Nación.\n\nQue en atención a lo expuesto precedentemente, resulta pertinente proceder a su\naceptación.\n\nQue el presente acto se dicta en uso de las atribuciones conferidas por el\nartículo 11 de la Ley N° 27.148.\n\nPor ello,\n\nEL PRESIDENTE DE LA NACIÓN ARGENTINA\n\nDECRETA:\n\nARTÍCULO 1°.- Acéptase, a partir del 31 de diciembre de 2017, la renuncia\npresentada por la señora doctora D. Alejandra Magdalena GILS CARBÓ (D.N.I. N°\n12.600.466), al cargo de PROCURADORA GENERAL DE LA NACION.\n\nARTÍCULO 2°.- Comuníquese, publíquese, dése a la Dirección Nacional del Registro\nOficial y archívese. — MACRI. — Germán Carlos Garavano.\n\ne. 06/11/2017 N° 85592/17 v. 06/11/2017'
+          detalleNorma: {
+            encabezado: [
+              '#I5426953I#',
+              'PROCURACIÓN GENERAL DE LA NACIÓN',
+              'Decreto 898/2017',
+              'Acéptase renuncia.',
+              'Ciudad de Buenos Aires, 03/11/2017'
+            ],
+            vistos: [
+              'Que la señora doctora D. Alejandra Magdalena GILS CARBÓ ha presentado su\nrenuncia, a partir del 31 de diciembre del año 2017, al cargo de Procuradora\nGeneral de la Nación.',
+              'Que en atención a lo expuesto precedentemente, resulta pertinente proceder a su\naceptación.',
+              'Que el presente acto se dicta en uso de las atribuciones conferidas por el\nartículo 11 de la Ley N° 27.148.',
+              'Por ello,',
+              'EL PRESIDENTE DE LA NACIÓN ARGENTINA'
+            ],
+            articulos: [
+              'ARTÍCULO 1°.- Acéptase, a partir del 31 de diciembre de 2017, la renuncia\npresentada por la señora doctora D. Alejandra Magdalena GILS CARBÓ (D.N.I. N°\n12.600.466), al cargo de PROCURADORA GENERAL DE LA NACION.',
+              'ARTÍCULO 2°.- Comuníquese, publíquese, dése a la Dirección Nacional del Registro\nOficial y archívese. — MACRI. — Germán Carlos Garavano.',
+              'e. 06/11/2017 N° 85592/17 v. 06/11/2017'
+            ]
+          }
         })
     })
     
