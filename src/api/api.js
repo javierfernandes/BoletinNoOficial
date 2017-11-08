@@ -27,17 +27,15 @@ export default {
   },
 
   async fetchDetalleDecreto({ idTramite, fechaPublicacion }) {
-    const form = {
-      numeroTramite: idTramite,
-      fechaPublicacion,
-      origenDetalle: 0,
-      idSesion: null
-    }
-    console.log('FORM', form)
     const data = await rp({
       method: 'POST',
       uri: 'https://www.boletinoficial.gob.ar/norma/detallePrimera',
-      form
+      form: {
+        numeroTramite: idTramite,
+        fechaPublicacion,
+        origenDetalle: 0,
+        idSesion: null
+      }
     })
     const decreto = JSON.parse(data).dataList
     return {

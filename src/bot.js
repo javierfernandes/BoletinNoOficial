@@ -4,8 +4,7 @@ import logger from './logger'
 import api from './api/api'
 import processor from './processor/tweet'
 
-// const today = moment().format('YYYYMMDD')
-const today = '20171106'
+const today = moment().format('YYYYMMDD')
 
 const run = async processor => {
   logger.debug(`Running for ${today}`)
@@ -14,19 +13,15 @@ const run = async processor => {
   
   logger.debug(`Found ${decretos.length} decretos`) 
   
-  const r = await Promise.all(decretos.map(async decreto => {
+  await Promise.all(decretos.map(async decreto => {
     const detalle = await api.fetchDetalleDecreto(decreto)
-    return {
-      decreto,
-      detalle
-    }
+    return await processor({ decreto, detalle })
   }))
-  console.log(JSON.stringify(r))
 }
 
 
 // start/schedule
 
-run(processor)
-// new CronJob('00 22 08 * * 1-5', run, () => {}, true)
+// run(processor)
+new CronJob('00 22 08 * * 1-5', run, () => {}, true)
 

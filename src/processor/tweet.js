@@ -10,21 +10,21 @@ export default async function({ decreto, detalle }) {
 
   const tweet = await T.post('statuses/update', { status: decretoToText(decreto) })
   
-  await Promise.all(detalle.detallNorma.articulos.map(articulo => {
+  await Promise.all(detalle.detalleNorma.articulos.map(articulo => {
     T.post('statuses/update', {
-      status: articulo,
-      in_reply_to_status_id: tweet.id
+    status: `@BoletinNOficial ${articulo}`,
+    in_reply_to_status_id: tweet.data.id_str
     })
   }))
 }
 
 const decretoToText = ({ idTamite, fechaPublicacion, organismo, numeroNorma, sintesis }) => 
 `${numeroNorma}-${organismo}
-${sintesis} ${articleURL(idTamite)}
+${sintesis} ${articleURL(idTamite, fechaPublicacion)}
 `
 
 // url
-const articleURL = id => `https://www.boletinoficial.gob.ar/#!DetalleNorma/${id}/${today}`
+const articleURL = (id, fecha) => `https://www.boletinoficial.gob.ar/#!DetalleNorma/${id}/${fecha}`
 
 // abbreviate
 const abbreviateNorma = norma => norma.replace('Decreto ', '#')
