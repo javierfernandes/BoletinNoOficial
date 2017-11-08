@@ -1,3 +1,4 @@
+import logger from '../logger'
 import rp from 'request-promise'
 import { parseNumeroNorma, parseDetalleNorma } from './transformations'
 
@@ -16,19 +17,27 @@ export default {
       }
     })
 
-    return JSON.parse(data).dataList[0].filter(d => d.rubro === 'Decretos')
+    return JSON.parse(data).dataList[0]
+      .filter(d => d.rubro === 'Decretos')
+      .map(d => ({
+        ...d,
+        // fixing typo in their API !
+        idTramite: d.idTamite
+      }))
   },
 
   async fetchDetalleDecreto({ idTramite, fechaPublicacion }) {
+    const form = {
+      numeroTramite: idTramite,
+      fechaPublicacion,
+      origenDetalle: 0,
+      idSesion: null
+    }
+    console.log('FORM', form)
     const data = await rp({
       method: 'POST',
       uri: 'https://www.boletinoficial.gob.ar/norma/detallePrimera',
-      form: {
-        numeroTramite: idTramite,
-        fechaPublicacion,
-        origenDetalle: 0,
-        idSesion: null
-      }
+      form
     })
     const decreto = JSON.parse(data).dataList
     return {

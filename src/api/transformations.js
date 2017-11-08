@@ -1,5 +1,6 @@
 import { pipe, replace, split, prop } from 'ramda'
 import htmlToText from 'html-to-text'
+import { middleware, exclude } from './utils' 
 
 export const parseNumeroNorma = _ => /Decreto (.*)/.exec(_)[1]
 
@@ -15,9 +16,16 @@ const pushTo = attribute => (article, line) => ({
   ...article,
   [attribute]: (article[attribute] || []).concat(line)
 })
+
 const parsers = {
   'VISTO Y CONSIDERANDO:': pushTo('vistos'),
-  'DECRETA:': pushTo('articulos')
+  // 'DECRETA:': pushTo('articulos')
+  'DECRETA:': middleware(
+    exclude(line => /^ARTÍCULO [\d]*°.- Comuníquese,/.test(line)),
+    exclude(line => /^e. \d{2}\/\d{2}\/\d{4}/.test(line)),
+    // TODO: remove "ARTICLE 1", & abbreviate text
+    pushTo('articulos')
+  )
 }
 
 const parseReducer = (acc, line) => {

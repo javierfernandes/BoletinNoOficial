@@ -28,6 +28,7 @@ describe('BNO api', () => {
           "fechaPublicacionHasta": null,
           "idNorma": null,
           "idTamite": "174096",
+          "idTramite": "174096",
           "nuevo": "True",
           "numeroNorma": "Decreto 897",
           "organismo": "JEFATURA DE GABINETE DE MINISTROS",
@@ -46,6 +47,7 @@ describe('BNO api', () => {
           "fechaPublicacionHasta": null,
           "idNorma": null,
           "idTamite": "174097",
+          "idTramite": "174097",
           "nuevo": "True",
           "numeroNorma": "Decreto 895",
           "organismo": "MINISTERIO DE RELACIONES EXTERIORES Y CULTO",
@@ -64,6 +66,7 @@ describe('BNO api', () => {
           "fechaPublicacionHasta": null,
           "idNorma": null,
           "idTamite": "174098",
+          "idTramite": "174098",
           "nuevo": "True",
           "numeroNorma": "Decreto 896",
           "organismo": "SERVICIO EXTERIOR",
@@ -108,8 +111,6 @@ describe('BNO api', () => {
             ],
             articulos: [
               'ARTÍCULO 1°.- Acéptase, a partir del 31 de diciembre de 2017, la renuncia presentada por la señora doctora D. Alejandra Magdalena GILS CARBÓ (D.N.I. N° 12.600.466), al cargo de PROCURADORA GENERAL DE LA NACION.',
-              'ARTÍCULO 2°.- Comuníquese, publíquese, dése a la Dirección Nacional del Registro Oficial y archívese. — MACRI. — Germán Carlos Garavano.',
-              'e. 06/11/2017 N° 85592/17 v. 06/11/2017'
             ]
           }
         })
