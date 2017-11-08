@@ -6,7 +6,7 @@ import processor from './processor/tweet'
 
 const today = moment().format('YYYYMMDD')
 
-const run = async processor => {
+const run = async () => {
   logger.debug(`Running for ${today}`)
   
   const decretos = await api.fetchDecretos(today)
@@ -23,6 +23,6 @@ const run = async processor => {
 
 // start/schedule
 
-// run(processor)
-new CronJob('00 24 08 * * 1-5', run, () => {}, true)
+// run()
+new CronJob('00 42 08 * * 1-5', run, () => {}, true)
 
