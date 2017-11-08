@@ -6,7 +6,7 @@ export const parseNumeroNorma = _ => /Decreto (.*)/.exec(_)[1]
 //
 // Parse decreto content
 //
-const parseHtml = _ => htmlToText.fromString(_)
+const parseHtml = _ => htmlToText.fromString(_, { wordwrap: false })
 
 const splitLines = split(/\n\n/)
 const shrinkCR = replace(/\n\n+/g, '\n')

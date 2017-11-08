@@ -100,15 +100,15 @@ describe('BNO api', () => {
               'Ciudad de Buenos Aires, 03/11/2017'
             ],
             vistos: [
-              'Que la señora doctora D. Alejandra Magdalena GILS CARBÓ ha presentado su\nrenuncia, a partir del 31 de diciembre del año 2017, al cargo de Procuradora\nGeneral de la Nación.',
-              'Que en atención a lo expuesto precedentemente, resulta pertinente proceder a su\naceptación.',
-              'Que el presente acto se dicta en uso de las atribuciones conferidas por el\nartículo 11 de la Ley N° 27.148.',
+              'Que la señora doctora D. Alejandra Magdalena GILS CARBÓ ha presentado su renuncia, a partir del 31 de diciembre del año 2017, al cargo de Procuradora General de la Nación.',
+              'Que en atención a lo expuesto precedentemente, resulta pertinente proceder a su aceptación.',
+              'Que el presente acto se dicta en uso de las atribuciones conferidas por el artículo 11 de la Ley N° 27.148.',
               'Por ello,',
               'EL PRESIDENTE DE LA NACIÓN ARGENTINA'
             ],
             articulos: [
-              'ARTÍCULO 1°.- Acéptase, a partir del 31 de diciembre de 2017, la renuncia\npresentada por la señora doctora D. Alejandra Magdalena GILS CARBÓ (D.N.I. N°\n12.600.466), al cargo de PROCURADORA GENERAL DE LA NACION.',
-              'ARTÍCULO 2°.- Comuníquese, publíquese, dése a la Dirección Nacional del Registro\nOficial y archívese. — MACRI. — Germán Carlos Garavano.',
+              'ARTÍCULO 1°.- Acéptase, a partir del 31 de diciembre de 2017, la renuncia presentada por la señora doctora D. Alejandra Magdalena GILS CARBÓ (D.N.I. N° 12.600.466), al cargo de PROCURADORA GENERAL DE LA NACION.',
+              'ARTÍCULO 2°.- Comuníquese, publíquese, dése a la Dirección Nacional del Registro Oficial y archívese. — MACRI. — Germán Carlos Garavano.',
               'e. 06/11/2017 N° 85592/17 v. 06/11/2017'
             ]
           }
