@@ -17,13 +17,13 @@ const pushTo = attribute => (article, line) => ({
   [attribute]: (article[attribute] || []).concat(line)
 })
 
-const parsers = {
+export const parsers = {
   'VISTO Y CONSIDERANDO:': pushTo('vistos'),
   // 'DECRETA:': pushTo('articulos')
   'DECRETA:': middleware(
-    exclude(line => /^ARTÍCULO [\d]*°.- Comuníquese,/.test(line)),
+    exclude(line => /^artículo .*comuníquese.*archívese.*/.test(line.toLowerCase())),
     exclude(line => /^e. \d{2}\/\d{2}\/\d{4}/.test(line)),
-    // TODO: remove "ARTICLE 1", & abbreviate text
+    // TODO: remove "ARTICLE X" preffix, & abbreviate text
     pushTo('articulos')
   )
 }

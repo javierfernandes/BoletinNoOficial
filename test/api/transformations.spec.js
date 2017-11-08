@@ -1,5 +1,6 @@
 import { expect } from 'chai'
 import { middleware, exclude } from '../../src/api/utils'
+import { parsers } from '../../src/api/transformations'
 
 describe('transformations', () => {
   
@@ -42,6 +43,27 @@ describe('transformations', () => {
         )
 
         expect(f('article', 'ABC')).to.equal('article')
+      })
+
+    })
+
+  })
+
+  describe('parsers', () => {
+
+    describe('decreta', () => {
+
+      it('should filter archivese', () => {
+        
+        const expectToFilter = content => {
+          const article = {}
+          parsers['DECRETA:'](article, content)
+          expect(article).to.deep.equal({})
+        }
+        
+        expectToFilter("ARTÍCULO 3°.- Comuníquese, publíquese, dése a la DIRECCIÓN NACIONAL DEL REGISTRO OFICIAL y archívese. — MICHETTI. — Marcos Peña. — Guillermo Javier Dietrich.")
+        expectToFilter("ARTÍCULO 2°.- Comuníquese, publíquese, dése a la Dirección Nacional del Registro Oficial y archívese. — MACRI. — Germán Carlos Garavano.")
+        expectToFilter("ARTÍCULO 2°.- Comuníquese, publíquese, dése a la Dirección Nacional del Registro Oficial y archívese. — MICHETTI. — Germán Carlos Garavano.")
       })
 
     })

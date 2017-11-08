@@ -15,6 +15,7 @@ const run = async processor => {
   
   await Promise.all(decretos.map(async decreto => {
     const detalle = await api.fetchDetalleDecreto(decreto)
+    console.log('Processing decreto', JSON.stringify(detalle))
     return await processor({ decreto, detalle })
   }))
 }
@@ -23,5 +24,5 @@ const run = async processor => {
 // start/schedule
 
 // run(processor)
-new CronJob('00 22 08 * * 1-5', run, () => {}, true)
+new CronJob('00 24 08 * * 1-5', run, () => {}, true)
 
